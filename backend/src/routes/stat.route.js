@@ -4,6 +4,7 @@ import { getStats } from "../controller/stat.controller.js";
 
 const router = Router();
 
-router.get("/", protectRoute, requireAdmin, getStats);
+// protect all routes no matter what no need of requireAdmin
+router.get("/", protectRoute, getStats);
 
 export default router;
