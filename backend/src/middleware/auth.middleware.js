@@ -12,7 +12,7 @@ export const requireAdmin = async (req, res, next) => {
 		const currentUser = await clerkClient.users.getUser(req.auth.userId);
 		const isAdmin = process.env.ADMIN_EMAIL === currentUser.primaryEmailAddress?.emailAddress;
 		const isAdminRequired = process.env.ADMIN_REQUIRED === "true";
-		if (!isAdmin || !isAdminRequired) {
+		if (!isAdmin || isAdminRequired) {
 			return res.status(403).json({ message: "Unauthorized - you must be an admin" });
 		}
 
