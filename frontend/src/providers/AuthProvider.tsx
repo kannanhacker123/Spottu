@@ -20,7 +20,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 		const initAuth = async () => {
 			
 			try {
-				const token = await getToken();
+				const token = await getToken({template: "Test"});
 				updateApiToken(token);
 				if (token) {
 					await checkAdminStatus();
@@ -44,7 +44,7 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 	if (loading)
 		return (
 			<div className='h-screen w-full flex items-center justify-center'>
-				<Loader className='size-8 text-emerald-500 animate-spin' />
+				<Loader className='size-10 text-emerald-500 animate-spin' />
 			</div>
 		);
 
